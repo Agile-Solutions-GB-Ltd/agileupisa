@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "agileupisa"
-version = "0.0.13"
+version = "0.0.14"
 description = "Python module to manage AgileUP Informatica Secure Agents."
 authors = ["agileturret <Paul.Gilligan@agilesolutions.co.uk>"]
 license = "Apache-2.0"
