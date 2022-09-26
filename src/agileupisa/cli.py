@@ -1,49 +1,52 @@
 import click
 import pkg_resources
 
-from agileupstate.terminal import print_check_message, print_cross_message
-from agileupstate.vault import address, is_ready
-
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
 
-@click.group(help='CLI to manage pipeline states.')
+@click.group(help='CLI to manage Informatica Secure Agents.')
 def cli() -> int:
     pass
 
 
 @cli.command(help='Display the current version.')
 def version() -> None:
-    click.echo(f"AgileUp State Version: {pkg_resources.get_distribution('agileupstate').version}")
+    click.echo(f"AgileUp ISA Version: {pkg_resources.get_distribution('agileupisa').version}")
 
 
-@cli.command(help='Check client configuration.')
-def check() -> None:
-    click.secho('Checking client configuration', fg='green')
-    if is_ready():
-        print_check_message('Vault backend is available')
-    else:
-        print_cross_message(f'Vault backend failed from: {address()}', leave=True)
+@cli.command(help='Install software.')
+def install() -> None:
+    click.secho('Install software', fg='green')
 
 
-@cli.command(help='Create client state.')
-def create() -> None:
-    click.secho('- Create client state', fg='green')
+@cli.command(help='Configure software.')
+def configure() -> None:
+    click.secho('Configure software', fg='green')
 
 
-@cli.command(help='Update client state.')
-def update() -> None:
-    click.secho('- Update client state', fg='green')
+@cli.command(help='Smoke test application.')
+def smoke() -> None:
+    click.secho('Smoke test application', fg='green')
 
 
-@cli.command(help='Save client state.')
-def save() -> None:
-    click.secho('- Save client state', fg='green')
+@cli.command(help='Start application.')
+def start() -> None:
+    click.secho('Start application', fg='green')
 
 
-@cli.command(help='Load client state.')
-def fetch() -> None:
-    click.secho('- Load client state', fg='green')
+@cli.command(help='Stop application.')
+def stop() -> None:
+    click.secho('Stop application', fg='green')
+
+
+@cli.command(help='Backup application.')
+def backup() -> None:
+    click.secho('Backup application', fg='green')
+
+
+@cli.command(help='Restore application.')
+def restore() -> None:
+    click.secho('Restore application', fg='green')
 
 
 if __name__ == '__main__':
